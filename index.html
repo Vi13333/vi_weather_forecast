@@ -4,42 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App🌸</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="card-main">
-    <header>
+      <header>
         <form class="search-form" id="search-form">
-            <input type="search" placeholder="Enter a city..." required  id="search-form-input" class="search-form-input"/>
-            <input type="submit" value="Search" class="searh-form-button"/>
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            id="search-form-input"
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="searh-form-button" />
         </form>
-    </header>
-    <main>
-      <div class="weather-app">
-        <div>
-        <h1 id="city">Ukraine</h1>
-        <p>
-            <strong>Friday 12:00 rain <br />
-            Humidity: 87%, Wind: 7.2km/h></strong>
-        </p>
-        </div>
-        <div class="weather-app-temperature">
-            <span class="weather-temperature-icon">☀️</span> 
+      </header>
+      <main>
+        <div class="weather-app">
+          <div>
+            <h1 id="city">Ukraine</h1>
+            <p>
+              <strong
+                >Friday 12:00 rain <br />
+                Humidity: 87%, Wind: 7.2km/h></strong
+              >
+            </p>
+          </div>
+          <div class="weather-app-temperature">
+            <span class="weather-temperature-icon">☀️</span>
             <span class="weather-temperature-value" id="temperature">24</span>
             <span class="weather-temperature-unit">°C</span>
+          </div>
         </div>
-        </div>
-    </main>
-    <footer>
-      This project coded by <a href="https://github.com/Vi13333">Vitalina Ivashchyshyna</a>,
-      code hosted on
-      <a href="https://github.com/Vi13333/vi_weather_forecast">Github</a> and
-      webside hosted on
-      <a href="https://main--weather-vi-app.netlify.app/">Netlify</a>
-    </footer>
+      </main>
+      <footer>
+        This project coded by
+        <a href="https://github.com/Vi13333">Vitalina Ivashchyshyna</a>, code
+        hosted on
+        <a href="https://github.com/Vi13333/vi_weather_forecast">Github</a> and
+        webside hosted on
+        <a href="https://main--weather-vi-app.netlify.app/">Netlify</a>
+      </footer>
     </div>
     <script src="index.js"></script>
   </body>
