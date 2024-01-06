@@ -30,16 +30,17 @@
       <main>
         <div class="weather-app">
           <div>
-            <h1 id="city"></h1>
-            <p>
-              <strong
-                >Friday 12:00 rain <br />
-                Humidity: 87%, Wind: 7.2km/h></strong
-              >
-            </p>
+            <h1 id="city" class="hidden"></h1>
+            <div id="about" class="hidden">
+              <strong>
+                <span id="time"></span>, <span id="description"></span> 
+                <br />
+                Humidity: <span id="humidity"></span>, Wind: <span id="wind-speed"></span>
+                </strong>
+              </div>
           </div>
-          <div class="weather-app-temperature">
-            <span class="weather-temperature-icon">☀️</span>
+          <div class="weather-app-temperature hidden">
+            <div id="icon"></div>
             <span class="weather-temperature-value" id="temperature"></span>
             <span class="weather-temperature-unit">°C</span>
           </div>
