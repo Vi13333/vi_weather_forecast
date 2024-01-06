@@ -13,20 +13,24 @@
     <div class="card-main">
     <header>
         <form>
-            <input type="search" placeholder="Enter a city..." required/>
-            <input type="submit" value="Search"/>
+            <input type="search" placeholder="Enter a city..." required  class="search-form-input"/>
+            <input type="submit" value="Search" class="searh-form-button"/>
         </form>
     </header>
     <main>
+      <div class="weather-app">
         <div>
         <h1>Ukraine</h1>
         <p>
-            Friday 12:00 rain <br />
-            Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+            <strong>Friday 12:00 rain <br />
+            Humidity: 87%, Wind: 7.2km/h></strong>
         </p>
         </div>
-        <div>
-            ☀️21 °C
+        <div class="weather-app-temperature">
+            <span class="weather-temperature-icon">☀️</span> 
+            <span class="weather-temperature-value" id="temperature">24</span>
+            <span class="weather-temperature-unit">°C</span>
+        </div>
         </div>
     </main>
     <footer>
