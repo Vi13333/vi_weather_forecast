@@ -25,6 +25,7 @@ function refreshWeather(response){
       .querySelector(".weather-app-temperature")
       .classList.remove("hidden");
 
+      getForecast(response.data.city);
 }
 
     function formatDate(date) {
@@ -68,31 +69,38 @@ function handleSearchSubmit(event){
     displayForecast();
 }
 
+function getForecast(city) {
+  let apiKey = "5a40eb0c0d6668b4da5oc31d5aa39t3f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+
+}
 
 let forecastVisible = false;
+let forecastElement = document.querySelector("#forecast");
 
-function showForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let days = [
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+function formatDay (timestamp){
+  let date = new Date(timestamp *1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
+
+function showForecast(response) {
+
   let forecastHtml = "";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `
-    <div class="weather-forecast-week" id="forecast">
-      <div class="forecast-week-day">${day}</div>
-        <div class="forecast-week-icon">🌤️</div>
+    <div class="weather-forecast-week">
+      <div class="forecast-week-day">${formatDay(day.time)}</div>
+        <img src="${day.condition.icon_url}" class="forecast-week-icon" />
         <div class="weather-temperature">
-          <div class="temperature">18°</div>
-          <div class="temperature">12°</div>
+          <div class="temperature">${Math.round(day.temperature.maximum)}°</div>
+          <div class="temperature">${Math.round(day.temperature.minimum)}°</div>
         </div>
     </div>
     `;
@@ -117,9 +125,9 @@ function handleSearchSubmit(event) {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
-function displayForecast() {
+function displayForecast(response) {
   if (forecastVisible) {
-    showForecast();
+    showForecast(response);
   }
 }
 

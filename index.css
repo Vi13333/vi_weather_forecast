@@ -115,7 +115,8 @@ footer{
 }
 
 .forecast-week-icon{
-  font-size: 50px;
+  width:85px;
+  text-align: center;
   margin-top: 10px;
 }
 
@@ -129,8 +130,10 @@ footer{
 
 .forecast-week-day{
   text-align: center;
+  font-size: 25px;
 }
 
 .temperature{
-  padding: 8px;
+  padding: 5px;
+  font-size: 20px;
 }
