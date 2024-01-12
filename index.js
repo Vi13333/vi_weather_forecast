@@ -62,11 +62,65 @@ function handleSearchSubmit(event){
     document.querySelector("#city").classList.add("hidden");
     document.querySelector("#about").classList.add("hidden");
     document.querySelector(".weather-app-temperature").classList.add("hidden");
-
-    
+  
     searchCity(searchInput.value);
+    forecastVisible = true;
+    displayForecast();
 }
 
 
+let forecastVisible = false;
+
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = [
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+    <div class="weather-forecast-week" id="forecast">
+      <div class="forecast-week-day">${day}</div>
+        <div class="forecast-week-icon">🌤️</div>
+        <div class="weather-temperature">
+          <div class="temperature">18°</div>
+          <div class="temperature">12°</div>
+        </div>
+    </div>
+    `;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form-input");
+
+  document.querySelector("#city").classList.add("hidden");
+  document.querySelector("#about").classList.add("hidden");
+  document.querySelector(".weather-app-temperature").classList.add("hidden");
+
+  searchCity(searchInput.value);
+  forecastVisible = true;
+  displayForecast();
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+function displayForecast() {
+  if (forecastVisible) {
+    showForecast();
+  }
+}
+
+displayForecast();
